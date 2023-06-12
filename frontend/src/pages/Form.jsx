@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   MDBRow,
   MDBCol,
@@ -8,10 +8,45 @@ import {
 } from "mdb-react-ui-kit";
 
 const Form = () => {
+  const [numFields, setNumFields] = useState(0);
+
+  const handleSelectChange = (event) => {
+    const selectedValue = parseInt(event.target.value);
+    setNumFields(selectedValue);
+  };
+
+  const renderInputFields = () => {
+    const inputFields = [];
+    for (let i = 0; i < numFields; i++) {
+      inputFields.push(
+        <div key={i}>
+          <MDBInput type="text" className={"mb-4"} label={`Member ${i + 1} Name`} />
+        </div>
+      );
+    }
+    return inputFields;
+  };
+
   return (
     <>
       <div className={"container mt-5"}>
         <form>
+          <label className={"mb-2"} htmlFor="numFields">Number Of members</label>
+          <select
+            id="numFields"
+            value={numFields}
+            className={"form-select mb-3"}
+            onChange={handleSelectChange}
+          >
+            <option value="0">Please Select</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            {/* Add more options as needed */}
+          </select>
+          {renderInputFields()}
           <MDBRow className="mb-4">
             <MDBCol>
               <MDBInput id="form6Example1" label="First name" />
