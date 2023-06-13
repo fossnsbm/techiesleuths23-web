@@ -13,7 +13,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/form" element={<Form />} />
+          <Route path="/register" element={<Form />} />
         </Routes>
       </div>
     </BrowserRouter>

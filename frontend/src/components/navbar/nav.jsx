@@ -42,7 +42,7 @@ export default function Navbar() {
                 <MDBNavbarLink
                   active
                   aria-current='page'
-                  href='#'
+                  href='/'
                   style={{ color: "white" }}
                 >
                   Home

@@ -1,4 +1,10 @@
 const Landing = () => {
+
+  const handleRegister = () => {
+    window.location.href = '/register';
+  }
+
+
   return (
     <>
       <div className='heroSection'>
@@ -16,7 +22,7 @@ const Landing = () => {
                 quasi voluptatem odit vitae.
               </p>
               <div style={{marginTop:40}}> 
-                <button class="buttonRegister" role="button">Register Now</button>
+                <button class="buttonRegister" role="button" onClick={handleRegister}>Register Now</button>
               </div>
              
             </div>
