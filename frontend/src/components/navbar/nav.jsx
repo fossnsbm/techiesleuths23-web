@@ -21,7 +21,7 @@ export default function Navbar() {
   const [showBasic, setShowBasic] = useState(false);
 
   return (
-    <MDBNavbar expand='lg' color='white' style={{backgroundColor: "#2a2a3d"}}>
+    <MDBNavbar expand='lg' color='white' style={{backgroundColor: "#d4d4d4"}}>
       <MDBContainer fluid>
         <img src="logoNav.png" id="navLogo" alt="logo" />
         <div className="linkBlock">
@@ -43,13 +43,13 @@ export default function Navbar() {
                   active
                   aria-current='page'
                   href='/'
-                  style={{ color: "white" }}
+                  style={{ color: "#474646" }}
                 >
                   Home
                 </MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink href='#' style={{ color: "white" }}>
+                <MDBNavbarLink href='#' style={{ color: "#474646" }}>
                   Rules
                 </MDBNavbarLink>
               </MDBNavbarItem>
