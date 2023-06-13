@@ -120,11 +120,11 @@ const Form = () => {
 
   return (
     <>
-      <h1 className={"text-center mt-4 text-white"}>Team Registration</h1>
+      <h1 className={"text-center mt-4"}>Team Registration</h1>
       <div className={"container mt-3"}>
         <MDBValidation>
           <form>
-            <label className={"mb-2 fw-bold text-white"} htmlFor="batch">
+            <label className={"mb-2 fw-bold"} htmlFor="batch">
               Batch
             </label>
             <MDBValidationItem
@@ -141,7 +141,7 @@ const Form = () => {
               />
             </MDBValidationItem>
 
-            <label className={"mb-2 fw-bold text-white"} htmlFor="team_name">
+            <label className={"mb-2 fw-bold"} htmlFor="team_name">
               Your Team Name
             </label>
             <MDBInput
@@ -153,7 +153,7 @@ const Form = () => {
               onChange={(event) => setTeamName(event.target.value)}
             />
 
-            <label className={"mb-2 fw-bold text-white"} htmlFor="members">
+            <label className={"mb-2 fw-bold"} htmlFor="members">
               Number Of members
             </label>
             <select
@@ -172,10 +172,7 @@ const Form = () => {
             {renderInputFields()}
             <MDBRow className="mb-4 mt-5">
               <MDBCol>
-                <label
-                  className={"mb-2 fw-bold text-white"}
-                  htmlFor="contact_number"
-                >
+                <label className={"mb-2 fw-bold"} htmlFor="contact_number">
                   Leader's Contact Number
                 </label>
                 <MDBInput
@@ -187,7 +184,7 @@ const Form = () => {
                 />
               </MDBCol>
               <MDBCol>
-                <label className={"mb-2 fw-bold text-white"} htmlFor="email">
+                <label className={"mb-2 fw-bold"} htmlFor="email">
                   Leader's Email
                 </label>
                 <MDBInput
