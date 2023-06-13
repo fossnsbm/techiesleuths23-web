@@ -9,6 +9,7 @@ import {
 } from "mdb-react-ui-kit";
 import axios from "axios";
 import Swal from "sweetalert2";
+import iziToast from "izitoast";
 
 const Form = () => {
   const [numFields, setNumFields] = useState(0);
@@ -38,6 +39,7 @@ const Form = () => {
           <MDBInput
             type="text"
             required={true}
+            value={inputValues[i] || ""}
             className={"mb-4"}
             onChange={(event) => handleInputChange(event, i)}
             label={`Member ${i + 1} Name`}
@@ -50,6 +52,43 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (batch === "") {
+      iziToast.error({
+        title: "Error",
+        message: "Please enter your batch name",
+      });
+      return;
+    } else if (teamName === "") {
+      iziToast.error({
+        title: "Error",
+        message: "Please enter your team name",
+      });
+
+      return;
+    } else if (inputValues[1] === undefined) {
+      iziToast.error({
+        title: "Error",
+        message: "Please enter at least two members",
+      });
+
+      return;
+    } else if (leaderContact === "") {
+      iziToast.error({
+        title: "Error",
+        message: "Please enter your contact number",
+      });
+
+      return;
+    } else if (leaderEmail === "") {
+      iziToast.error({
+        title: "Error",
+        message: "Please enter your email",
+      });
+
+      return;
+    }
+
     const data = {
       Batch: batch,
       "Team Name": teamName,
@@ -70,15 +109,22 @@ const Form = () => {
       .then((response) => {
         console.log(response.data);
         Swal.fire("Submitted!", "Your response has been recorded!", "success");
+        setBatch("");
+        setTeamName("");
+        setLeaderContact("");
+        setLeaderEmail("");
+        setInputValues([]);
+        setNumFields(0);
       });
   };
 
   return (
     <>
-      <div className={"container mt-5"}>
+      <h1 className={"text-center mt-4 text-white"}>Team Registration</h1>
+      <div className={"container mt-3"}>
         <MDBValidation>
           <form>
-            <label className={"mb-2 fw-bold"} htmlFor="batch">
+            <label className={"mb-2 fw-bold text-white"} htmlFor="batch">
               Batch
             </label>
             <MDBValidationItem
@@ -88,26 +134,26 @@ const Form = () => {
               <MDBInput
                 wrapperClass="mb-4"
                 id="batch"
-                required={true}
+                // required={true}
                 label="Enter Your Batch"
                 value={batch}
                 onChange={(event) => setBatch(event.target.value)}
               />
             </MDBValidationItem>
 
-            <label className={"mb-2 fw-bold"} htmlFor="team_name">
+            <label className={"mb-2 fw-bold text-white"} htmlFor="team_name">
               Your Team Name
             </label>
             <MDBInput
               wrapperClass="mb-4"
               id="team_name"
-              required={true}
+              // required={true}
               label="Team Name"
               value={teamName}
               onChange={(event) => setTeamName(event.target.value)}
             />
 
-            <label className={"mb-2 fw-bold"} htmlFor="members">
+            <label className={"mb-2 fw-bold text-white"} htmlFor="members">
               Number Of members
             </label>
             <select
@@ -126,19 +172,22 @@ const Form = () => {
             {renderInputFields()}
             <MDBRow className="mb-4 mt-5">
               <MDBCol>
-                <label className={"mb-2 fw-bold"} htmlFor="contact_number">
+                <label
+                  className={"mb-2 fw-bold text-white"}
+                  htmlFor="contact_number"
+                >
                   Leader's Contact Number
                 </label>
                 <MDBInput
                   id="contact_number"
-                  required={true}
+                  // required={true}
                   value={leaderContact}
                   onChange={(event) => setLeaderContact(event.target.value)}
                   label="Contact Number"
                 />
               </MDBCol>
               <MDBCol>
-                <label className={"mb-2 fw-bold"} htmlFor="email">
+                <label className={"mb-2 fw-bold text-white"} htmlFor="email">
                   Leader's Email
                 </label>
                 <MDBInput
@@ -146,7 +195,7 @@ const Form = () => {
                   onChange={(event) => setLeaderEmail(event.target.value)}
                   id="email"
                   type={"email"}
-                  required={true}
+                  // required={true}
                   label="Email"
                 />
               </MDBCol>
@@ -155,7 +204,7 @@ const Form = () => {
             <MDBBtn
               className="mb-4 mt-4"
               type="submit"
-              onSubmit={(e) => handleSubmit(e)}
+              onClick={(e) => handleSubmit(e)}
               block
             >
               Submit
