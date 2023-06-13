@@ -66,10 +66,10 @@ const Form = () => {
       });
 
       return;
-    } else if (inputValues[1] === undefined) {
+    } else if (inputValues[0] === undefined) {
       iziToast.error({
         title: "Error",
-        message: "Please enter at least two members",
+        message: "Please team members count",
       });
 
       return;
@@ -162,9 +162,7 @@ const Form = () => {
               className={"form-select mb-3"}
               onChange={handleSelectChange}
             >
-              <option value="0">Please Select</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
+              <option value="0">Select</option>
               <option value="3">3</option>
               <option value="4">4</option>
               {/* Add more options as needed */}
