@@ -1,38 +1,71 @@
-.App {
-  text-align: center;
+.heroSection{
+   margin-top: 8%;
+}
+.topicText
+{
+    color: white;
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+.detailsText
+{
+    color: white;
+    
+}
+.heroImg
+{
+   width: 55%;
+}
+#leftBlock
+{
+    padding-top: 25px;
+    padding-left: 50px;
+    /* background-color: darkblue; */
+}
+#rightBlock
+{
+    padding-top: 25px;
+    text-align: center;
+    /* background-color: darkgreen; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.buttonRegister {
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #FFFFFF;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0;
+    min-height: 50px;
+    outline: none;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    padding-left: 30px;
+    padding-right: 30px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    will-change: transform;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  
+  .buttonRegister:disabled {
+    pointer-events: none;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .buttonRegister:hover {
+    box-shadow: rgba(250, 250, 250, 0.735) 0 8px 15px;
+    transform: translateY(-2px);
   }
-}
+  
+  .buttonRegister:active {
+    box-shadow: none;
+    transform: translateY(0);
+  }
