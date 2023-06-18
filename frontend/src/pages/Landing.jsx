@@ -22,11 +22,12 @@ const Landing = () => {
                 <button
                   class='buttonRegister'
                   role='button'
+                  disabled={true}
                   onClick={() => {
                     navigate("/register");
                   }}
                 >
-                  Register Now
+                  Registration Closed
                 </button>
               </div>
             </div>
